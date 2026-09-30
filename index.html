@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Birthday Drop 2026">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bajs">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Birthday Drop 2026: Sretan rođendan, Bajs!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --ink:#111111; --muted:#5C5C5C; --line:#E5E5E5; --soft:#F5F5F5;
+  --pop:#FFE14D; --pop-ink:#111111;
+  --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#111111; --ink:#F4F4F4; --muted:#A3A3A3; --line:#2B2B2B; --soft:#1A1A1A; }
+}
+:root[data-theme="dark"]{ --bg:#111111; --ink:#F4F4F4; --muted:#A3A3A3; --line:#2B2B2B; --soft:#1A1A1A; }
+
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;padding-top:calc(60px + env(safe-area-inset-top,0px));-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0}
+p{margin:0 0 14px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:72px 0 0}
+
+/* Gornja traka */
+.top{position:fixed;top:0;left:0;right:0;z-index:20;height:calc(60px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 14px 0 20px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.tools{display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;padding:0;font-family:var(--display);font-weight:600;font-size:1.05rem}
+.icon-btn:hover{border-color:var(--ink)}
+.icon-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.tools{align-items:center}
+.beat-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 13px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:600;font-size:.95rem}
+.beat-btn svg{width:16px;height:16px;fill:currentColor;stroke:none}
+.beat-btn:hover,.beat-btn.on{background:var(--pop);color:var(--pop-ink);border-color:var(--pop-ink)}
+@media(max-width:420px){.brand{display:none}}
+/* Hero */
+.hero{padding-top:56px}
+.tag{font-family:var(--display);font-weight:500;font-size:.95rem;letter-spacing:.04em;color:var(--muted);margin-bottom:22px}
+h1{font-size:clamp(2.9rem,14vw,6.8rem);font-weight:700;letter-spacing:-.045em;line-height:.94;max-width:11ch}
+.chip{display:inline-block;margin-top:24px;padding:5px 14px;border:1px solid var(--ink);border-radius:999px;font-family:var(--display);font-weight:500;font-size:.95rem}
+.intro{max-width:46ch;margin-top:26px;font-size:1.15rem;color:var(--muted)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* Gumbi */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:10px;padding:12px 20px;font-weight:600}
+.btn:hover{background:var(--pop);color:var(--pop-ink);border-color:var(--pop-ink)}
+.btn.alt{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.btn.alt:hover{border-color:var(--ink);background:var(--bg);color:var(--ink)}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Naslovi sekcija */
+h2{font-size:clamp(1.8rem,7vw,2.6rem);font-weight:600;letter-spacing:-.03em;line-height:1.05}
+.sub{color:var(--muted);max-width:48ch;margin-top:10px}
+
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:800px){.hero-grid{grid-template-columns:1.25fr 1fr}}
+.cover{display:block;width:100%;max-width:420px;padding:0;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--soft);aspect-ratio:1/1}
+.cover img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.tr{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.tthumb{flex:none;width:76px;height:76px;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--soft)}
+.tthumb img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.tthumb:hover{border-color:var(--ink)}
+.banner{display:block;width:100%;padding:0;border:0;border-bottom:1px solid var(--ink);background:var(--soft)}
+.banner img{width:100%;max-height:420px;object-fit:cover;object-position:center top;display:block}
+.qimg{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:4px 0 16px;background:var(--soft)}
+.qimg img{width:100%;max-height:230px;object-fit:cover;display:block}
+.gimgs{display:grid;gap:10px;margin-bottom:16px}
+.gimgs.g2{grid-template-columns:1fr 1fr}
+.gimg{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--soft)}
+.gimg img{width:100%;height:100%;max-height:240px;object-fit:cover;display:block}
+/* Galerija */
+.grid{columns:2 150px;column-gap:14px;margin-top:28px}
+@media(min-width:760px){.grid{columns:3}}
+.grid figure{margin:0 0 18px;break-inside:avoid}
+.ph{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--soft)}
+.ph img{display:block;width:100%;height:auto;transition:transform .35s}
+.ph:hover img{transform:scale(1.03)}
+figcaption{font-size:.92rem;color:var(--muted);margin-top:8px;line-height:1.4}
+figcaption span{display:block;font-size:.85rem}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:none;flex-direction:column;align-items:center;justify-content:center;padding:calc(56px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:68vh;border-radius:10px;display:block}
+.lb p{color:#fff;margin:16px 0 0;text-align:center;max-width:44ch}
+.lb .nav{display:flex;gap:12px;margin-top:16px}
+.lb .icon-btn{background:#1d1d1d;color:#fff;border-color:#333}
+.lb .close{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:14px}
+
+/* Timeline */
+.tl{list-style:none;margin:32px 0 0;padding:0 0 0 22px;border-left:1px solid var(--line)}
+.tl li{position:relative;padding:0 0 30px 18px}
+.tl li::before{content:"";position:absolute;left:-28px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.tl li:last-child::before{background:var(--pop);border-color:var(--ink)}
+.ver{display:inline-block;font-family:var(--display);font-weight:600;font-size:.85rem;padding:2px 10px;border-radius:999px;background:var(--soft);border:1px solid var(--line);margin-bottom:6px}
+.tl h3{font-size:1.25rem;font-weight:600;letter-spacing:-.02em;margin-bottom:4px}
+.tl p{color:var(--muted);margin:0;max-width:52ch}
+
+/* Igra */
+.stage{margin-top:28px;border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--bg)}
+.gmenu{display:grid;gap:12px}
+@media(min-width:640px){.gmenu{grid-template-columns:1fr 1fr}}
+.gcard{text-align:left;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--bg);display:block;width:100%}
+.gcard:hover{border-color:var(--ink)}
+.gcard h3{font-size:1.2rem;font-weight:600;letter-spacing:-.02em}
+.gcard p{color:var(--muted);margin:4px 0 12px;font-size:.98rem}
+.gcard .st{font-weight:600;font-size:.92rem}
+.gcard.done .st{color:var(--muted)}
+.note{color:var(--muted);font-size:.95rem;margin:16px 0 0}
+.back{background:none;border:0;padding:0;margin:0 0 16px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.meta{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.stage h3.q{font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600;letter-spacing:-.025em;line-height:1.15}
+.opts{display:grid;gap:10px;margin-top:18px}
+.opt{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 16px}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt:disabled{cursor:default}
+.opt.pick{background:var(--pop);color:var(--pop-ink);border-color:var(--pop-ink);font-weight:600}
+.react{margin-top:14px;padding:12px 16px;border-radius:12px;background:var(--soft);font-weight:500}
+.result{border:1px solid var(--ink);border-radius:14px;padding:20px;margin-bottom:18px}
+.result h3{font-size:1.8rem;font-weight:700;letter-spacing:-.03em;margin-bottom:6px}
+input.ans{width:100%;font:inherit;padding:13px 16px;border-radius:12px;border:1px solid var(--ink);background:var(--bg);color:var(--ink)}
+.msg{min-height:1.5em;margin:10px 0 0;font-weight:600}
+.hint{margin:10px 0 0;color:var(--muted);font-size:.98rem}
+.found{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.found li{display:flex;gap:12px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px}
+.thumb{flex:none;border:0;padding:0;background:none}
+.thumb img{width:54px;height:54px;object-fit:cover;object-position:center 30%;border-radius:8px;display:block;border:1px solid var(--line)}
+.riddle-q{font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.3;letter-spacing:-.02em;margin-bottom:16px}
+
+/* Certifikat */
+.cert{margin-top:28px;border:1px solid var(--ink);border-radius:16px;overflow:hidden}
+.cert-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;background:var(--ink);color:var(--bg)}
+.cert-head strong{font-family:var(--display);font-size:1.1rem;letter-spacing:-.01em}
+.cert-head span{opacity:.75;font-size:.95rem}
+.cert-meta{display:grid;grid-template-columns:1fr 1fr;margin:0;border-bottom:1px solid var(--line)}
+.cert-meta div{padding:14px 20px;border-bottom:1px solid var(--line)}
+.cert-meta div:nth-last-child(-n+2){border-bottom:0}
+.cert-meta dt{font-size:.85rem;color:var(--muted)}
+.cert-meta dd{margin:2px 0 0;font-weight:600}
+.cert-body{padding:22px 20px 24px;font-size:1.1rem;line-height:1.7}
+.sign{font-family:var(--display);font-weight:700;font-size:1.4rem;margin:6px 0 0}
+.ctas{margin-top:24px}
+.toast{min-height:1.6em;margin:14px 0 0;font-weight:600}
+
+.coupons{display:grid;gap:12px;margin-top:20px}
+.coupon{position:relative;text-align:left;width:100%;background:var(--bg);border:1px dashed var(--ink);border-radius:12px;padding:14px 16px;font-weight:600}
+.coupon:hover{background:var(--pop);color:var(--pop-ink)}
+.coupon small{display:block;font-weight:400;color:var(--muted);margin-top:2px}
+.coupon:hover small{color:var(--pop-ink)}
+.coupon .stamp{display:none;position:absolute;right:14px;top:50%;transform:translateY(-50%) rotate(-7deg);border:2px solid var(--ink);border-radius:6px;padding:1px 8px;font-family:var(--display);font-weight:700;font-size:.9rem;background:var(--pop);color:var(--pop-ink)}
+.coupon.used{opacity:.7}
+.coupon.used .stamp{display:block}
+.locked{border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--muted)}
+
+footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+
+/* Pomoć */
+.overlay{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center}
+.overlay.open{display:flex}
+.sheet{width:100%;max-width:560px;max-height:88vh;overflow:auto;background:var(--bg);color:var(--ink);border:1px solid var(--ink);border-bottom:0;border-radius:20px 20px 0 0;padding:22px 22px calc(28px + env(safe-area-inset-bottom,0px))}
+.sheet h2{font-size:1.6rem;margin-bottom:14px}
+.sheet ul{padding-left:1.2em;margin:0 0 14px}
+.sheet li{margin-bottom:8px}
+
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+.float{position:fixed;bottom:-40px;font-size:30px;pointer-events:none;z-index:55}
+@media (prefers-reduced-motion:no-preference){
+  .float{animation:rise 2.4s ease-in forwards}
+  @keyframes rise{to{transform:translateY(-115vh) rotate(24deg);opacity:0}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ph img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <span class="brand">Birthday Drop</span>
+  <div class="tools">
+    <button class="beat-btn" id="beatBtn" data-cta="beat" aria-label="Pusti ili zaustavi bit"><svg id="beatIcon" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg><span id="beatTxt">Pusti bit</span></button>
+    <button class="icon-btn" id="themeBtn" aria-label="Promijeni temu svijetla/tamna"></button>
+    <button class="icon-btn" id="helpBtn" aria-label="Pomoć: kako radi aplikacija" aria-haspopup="dialog">?</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+      <div class="hero-text">
+      <p class="tag">NOVI ALBUM // 2026</p>
+      <h1>Sretan rođendan, <span id="nameH1"></span>!</h1>
+      <span class="chip">Explicit: sadrži iskrene emocije</span>
+            <div class="row">
+        <button class="btn" data-cta="confetti"><svg viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.8"/><path d="M4 3h.01M22 8h.01M15 2h.01M22 20h.01"/><path d="m22 2-2.2.7a2.9 2.9 0 0 0-1.8 2.3c-.1 1 .3 1.9 1 2.6"/><path d="M9.6 12.4 11.3 14"/><path d="m5.8 11.3 6.9 7.5c.4.5 1.2.5 1.6 0 1.8-1.8 2.5-4.3 1.6-6.6-.9-2.3-3-3.9-5.4-4-2.3-.1-4.4 1-5.7 3.1z"/></svg>Konfeti</button>
+        <button class="btn alt" data-scroll="timeline">Pogledaj tracklist</button>
+      </div>
+      </div>
+      <button class="cover" data-open="bajs" aria-label="Povećaj naslovnu fotku"><img id="coverImg" alt="Naslovna fotka"></button>
+      </div>
+    </section>
+
+
+    <section id="timeline">
+      <h2>Tracklist</h2>
+      <p class="sub">Album naše ekipe, od introa do outroa.</p>
+      <ol class="tl" id="tl"></ol>
+    </section>
+
+    <section id="igra">
+      <h2>Igra</h2>
+      <p class="sub">Potraga za blagom i pogađanje igrica. Kad završiš obje, otključavaju se kuponi na dnu stranice.</p>
+      <div class="stage" id="stage"></div>
+    </section>
+
+    <section id="certifikat">
+      <h2>Posveta</h2>
+      <article class="cert">
+        <button class="banner" data-open="klupa" aria-label="Povećaj fotku"><img id="bannerImg" alt="Fotka"></button>
+        <div class="cert-head"><strong>Platinum certifikat</strong><span>Službena rođendanska posveta</span></div>
+        <dl class="cert-meta">
+          <div><dt>Izvođač</dt><dd id="cName"></dd></div>
+          <div><dt>Album</dt><dd>Birthday Drop 2026</dd></div>
+          <div><dt>Status</dt><dd>Još jedna godina, platinasto</dd></div>
+          <div><dt>Izdao</dt><dd id="cFrom"></dd></div>
+        </dl>
+        <div class="cert-body" id="letter"></div>
+      </article>
+      <div class="row ctas">
+        <button class="btn" data-cta="beer"><svg viewBox="0 0 24 24"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6M13 12v6"/><path d="M14 7.5c-1 0-1.4.5-2.5.5S9.6 7.5 8.5 7.5a2.5 2.5 0 0 0 0 5h7a2.5 2.5 0 0 0 0-5z"/><path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg>Naruči pivo</button>
+        <button class="btn alt" data-cta="confetti">Konfeti</button>
+        <button class="btn alt" data-cta="thanks">Pošalji hvala</button>
+      </div>
+      <p class="toast" id="toast" role="status"></p>
+
+      <h2 style="margin-top:56px;font-size:clamp(1.5rem,6vw,2rem)">Tvoji kuponi</h2>
+      <p class="sub">Dodirni kupon kad ga želiš iskoristiti.</p>
+      <div class="coupons" id="coupons"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Bez feata, bez filtera. Sretan rođendan, Bajs.</div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotografija">
+  <button class="icon-btn close" id="lbClose" aria-label="Zatvori"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <img id="lbImg" alt="">
+  <div class="nav">
+    <button class="icon-btn" id="lbPrev" aria-label="Prethodna fotka"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="icon-btn" id="lbNext" aria-label="Sljedeća fotka"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+  <div class="sheet">
+    <h2 id="helpTitle">Kako radi ova aplikacija</h2>
+    <p>Ovo je rođendanska stranica. Skrolaj odozgo prema dolje, sve sekcije su na jednoj stranici.</p>
+    <ul>
+      <li><strong>Fotke:</strong> rasute su po cijeloj stranici. Dodirni bilo koju da je povećaš, a strelicama (ili tipkama lijevo/desno) prelaziš na sljedeću.</li>
+      <li><strong>Tracklist:</strong> naša zajednička povijest, pjesma po pjesma.</li>
+      <li><strong>Igra:</strong> odaberi Potragu za blagom ili Pogodi igricu. U potrazi upiši odgovor na zagonetku i dodirni "Provjeri", a ako zapneš, dodirni "Nagovještaj". Svaka riješena zagonetka otključava jednu fotku. U "Pogodi igricu" gledaš slike iz djetinjstva i upisuješ kako se zovu.</li>
+      <li><strong>Posveta i kuponi:</strong> kuponi se otključavaju kad završiš obje igre. Dodirni kupon da ga iskoristiš.</li>
+      <li><strong>Gumbi:</strong> "Konfeti", "Naruči pivo" i "Pošalji hvala" pokreću male animacije. </li>
+      <li><strong>Bit:</strong> gumb "Pusti bit" u gornjoj traci svira kratki bit dok skrolaš. Dodirni ga ponovno za zaustavljanje. Provjeri da mobitel nije na tihom.</li>
+      <li><strong>Tema:</strong> okrugli gumb pored upitnika mijenja svijetlu i tamnu temu.</li>
+    </ul>
+    <p>Napredak u igri i iskorišteni kuponi pamte se na ovom uređaju.</p>
+    <div class="row" style="margin-top:18px">
+      <button class="btn" id="helpClose">Zatvori</button>
+      <button class="btn alt" id="helpReset">Kreni ispočetka</button>
+    </div>
+  </div>
+</div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<script>
+/* =====================================================================
+   SADRŽAJ: ovdje se sve mijenja.
+   - PHOTOS: fotke su ugrađene u stranicu. Za nove fotke zamijeni vrijednost
+     (npr. "/images/fotka1.jpg" ako stranicu hostaš sa slikama pokraj nje).
+   - ALBUM: redoslijed fotki u povećanom prikazu (c je samo alt-tekst).
+   - TIMELINE: nazivi pjesama u tracklistu; k je ključ fotke (iz PHOTOS).
+   - LETTER: duža rođendanska želja.
+   ===================================================================== */
+const CONFIG = {
+  name: "Martin",
+  nick: "Bajs",
+  // E-mail obavijesti (Web3Forms). Ključ stiže na sfsikic@gmail.com nakon registracije na web3forms.com.
+  // Ključ nije tajna i smije biti u kodu. Dok je prazan, stranica ne šalje ništa.
+  notifyKey: "cfdea5d2-7aae-4985-8c47-3b4008e1e974",
+  from: "Fran",
+  finalHint: "poklon te čeka kod mene. Dođi po njega."
+};
+
+const PHOTOS = {"bajs": "/img/bajs.jpg", "piknik": "/img/piknik.jpg", "djeca": "/img/djeca.jpg", "beba": "/img/beba.jpg", "fc1": "/img/fc1.jpg", "fc2": "/img/fc2.jpg", "claw": "/img/claw.jpg", "vojnici": "/img/vojnici.jpg", "klupa": "/img/klupa.jpg"};
+
+const ALBUM = [
+  {k:"bajs",    c:"Na Bajs biciklu"},
+  {k:"beba",    c:"Stara fotka"},
+  {k:"djeca",   c:"Djeca na staroj fotki"},
+  {k:"klupa",   c:"Dvojica na klupi"},
+  {k:"piknik",  c:"Piknik u parku"}
+];
+
+const TIMELINE = [
+  {v:"Track 01", t:"Intro", k:"beba"},
+  {v:"Track 02", t:"Big Brothers", k:"djeca"},
+  {v:"Track 03", t:"Na klupi (skit)", k:"klupa"},
+  {v:"Track 04", t:"Piknik (feat. Mc NoHomo)", k:"piknik"}
+];
+
+const LETTER = [
+  "Sretan rođendan, Martine.",
+  "Još jedna godina na brojaču, a ni grama više pameti. Srećom, nikad ti nije ni trebala.",
+  "Piši, rimuj, budi glasan. Ostalo je na meni: torta, pivo i loša fotografija za uspomenu.",
+  "Uživaj u danu. Album se nastavlja."
+];
+
+const COUPONS = [
+  ["Jedna usluga bez pitanja \"zašto\"","Vrijedi cijele godine."],
+  ["Ja častim","Pizza ili burek, tvoj izbor."],
+  ["Revanš u Future Copu","Split screen, dva igrača, bez milosti."],
+  ["Prvi red na sljedećem nastupu","Dolazim i glasno pjevam tvoje stihove."]
+];
+
+const HUNT = [
+  {t:"Držiš me dok nastupaš, a kad me uključiš, cijela soba te čuje. Što sam?",
+   a:["mikrofon","mikrofo","mic"],
+   h:"Pjevaš ili repaš u mene.",
+   r:"Prvi trag: poklon nije na ovoj stranici.", p:"djeca"},
+  {t:"Bez mene nema pjesme. Tuc, tuc, tuc, a sve se kreće po meni.",
+   a:["bit","beat"],
+   h:"Instrumental ispod svakog stiha.",
+   r:"Drugi trag: nije ni skriven daleko.", p:"piknik"},
+  {t:"Imam slojeve, a nisam luk. Svi me žele, a režem se samo jednom godišnje.",
+   a:["torta","tortu","tortica","kolac"],
+   h:"Na meni gore svijeće.",
+   r:"Treći trag: " + CONFIG.finalHint, p:"beba"}
+];
+
+// Pogodi igricu: imgs = ključevi iz PHOTOS, a = prihvaćeni odgovori (bez dijakritika, malim slovima)
+const GUESS = [
+  {imgs:["fc2","fc1"], q:"Koja je ovo igrica?", a:["future cop","futurecop","lapd"], name:"Future Cop: LAPD",
+   h:"Robot policajac iz budućnosti, a u dvoje se igralo na podijeljenom ekranu."},
+  {imgs:["claw"], q:"A ova?", a:["claw"], name:"Claw",
+   h:"Gusarski mačak i platformer s kraja devedesetih."},
+  {imgs:["vojnici"], q:"Čime smo se još igrali?", a:["vojni","army","soldier"], name:"Vojnikići",
+   h:"Zeleni, plastični i bilo ih je cijela šaka."}
+];
+
+/* =====================================================================
+   Logika (obično ne treba dirati)
+   ===================================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/[^a-z ]/g,"").trim();
+
+const KEY = "birthday-drop-2026";
+let P = {q:false, h:false, r:false, hunt:0, gi:0, res:null, used:[]};
+try{
+  const s = JSON.parse(localStorage.getItem(KEY) || "null");
+  if(s) P = Object.assign(P, s);
+}catch(e){}
+function saveP(){ try{ localStorage.setItem(KEY, JSON.stringify(P)); }catch(e){} }
+let G = {view:"menu", hint:false, ghint:false};
+
+/* ---- Tema ---- */
+const root = document.documentElement;
+const ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+function effTheme(){
+  const t = root.getAttribute("data-theme");
+  return t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+}
+function themeIcon(){ $("#themeBtn").innerHTML = effTheme() === "dark" ? ICON_SUN : ICON_MOON; }
+try{ const t = localStorage.getItem("birthday-drop-theme"); if(t) root.setAttribute("data-theme", t); }catch(e){}
+$("#themeBtn").addEventListener("click", () => {
+  const n = effTheme() === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", n);
+  try{ localStorage.setItem("birthday-drop-theme", n); }catch(e){}
+  themeIcon();
+});
+themeIcon();
+
+/* ---- Statični dijelovi ---- */
+$("#nameH1").textContent = CONFIG.nick;
+$("#cName").textContent = CONFIG.name;
+$("#cFrom").textContent = CONFIG.from;
+$("#letter").innerHTML = LETTER.map(p => '<p>' + esc(p) + '</p>').join("") + '<p class="sign">' + esc(CONFIG.from) + '</p>';
+
+$("#coverImg").src = PHOTOS.bajs;
+$("#bannerImg").src = PHOTOS.klupa;
+
+$("#tl").innerHTML = TIMELINE.map(e =>
+  '<li><div class="tr"><div><span class="ver">' + esc(e.v) + '</span><h3>' + esc(e.t) + '</h3></div>' +
+  '<button class="tthumb" data-open="' + e.k + '" aria-label="Povećaj fotku"><img src="' + PHOTOS[e.k] + '" alt=""></button></div></li>').join("");
+
+/* ---- Lightbox ---- */
+let lbI = 0, lbList = [];
+function showLb(i){
+  lbI = (i + lbList.length) % lbList.length;
+  const k = lbList[lbI], a = ALBUM.find(x => x.k === k);
+  $("#lbImg").src = PHOTOS[k]; $("#lbImg").alt = a ? a.c : "Fotka";
+}
+function openLb(key){
+  const inAlbum = ALBUM.some(a => a.k === key);
+  lbList = inAlbum ? ALBUM.map(a => a.k) : [key];
+  showLb(lbList.indexOf(key));
+  document.querySelector(".lb .nav").style.display = lbList.length > 1 ? "flex" : "none";
+  $("#lb").classList.add("open"); $("#lbClose").focus();
+}
+function closeLb(){ $("#lb").classList.remove("open"); }
+$("#lbClose").addEventListener("click", closeLb);
+$("#lbPrev").addEventListener("click", () => showLb(lbI - 1));
+$("#lbNext").addEventListener("click", () => showLb(lbI + 1));
+$("#lb").addEventListener("click", e => { if(e.target.id === "lb") closeLb(); });
+
+/* ---- Igra ---- */
+function menu(){
+  const card = (id, t, d) =>
+    '<button class="gcard' + (P[id] ? ' done' : '') + '" data-g="' + ({h:"hunt", r:"guess"}[id]) + '">' +
+    '<h3>' + t + '</h3><p>' + d + '</p><span class="st">' + (P[id] ? 'Gotovo' : 'Kreni') + '</span></button>';
+  return '<div class="gmenu">' +
+    card("h", "Potraga za blagom", "Tri zagonetke vode do poklona.") +
+    card("r", "Pogodi igricu", "Tri slike iz djetinjstva. Kako se zovu?") + '</div>' +
+    '<p class="note">' + ((P.h && P.r) ? 'Sve je gotovo. Kuponi su otključani na dnu stranice.' : 'Završi obje igre i otključaj kupone.') + '</p>';
+}
+
+function hunt(){
+  const found = HUNT.slice(0, P.hunt).map(h =>
+    '<li><button class="thumb" data-open="' + h.p + '" aria-label="Povećaj fotku"><img src="' + PHOTOS[h.p] + '" alt=""></button><span>' + h.r + '</span></li>').join("");
+  if(P.hunt >= HUNT.length){
+    return '<h3 class="q" style="margin-bottom:14px">Blago pronađeno</h3><ul class="found">' + found + '</ul>' +
+      '<p>Sve zagonetke su riješene.</p>' +
+      '<button class="btn" data-g="menu">Natrag na igru</button>';
+  }
+  const H = HUNT[P.hunt];
+  return '<button class="back" data-g="menu">Natrag</button>' +
+    '<p class="meta">Zagonetka ' + (P.hunt + 1) + ' od ' + HUNT.length + '</p>' +
+    (found ? '<ul class="found">' + found + '</ul>' : '') +
+    '<p class="riddle-q">' + H.t + '</p>' +
+    '<input class="ans" id="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Upiši odgovor" aria-label="Tvoj odgovor">' +
+    '<p class="msg" id="msg" role="status"></p>' +
+    '<div class="row" style="margin-top:8px"><button class="btn" data-act="check">Provjeri</button>' +
+    '<button class="btn alt" data-act="hint">Nagovještaj</button></div>' +
+    '<p class="hint" id="hint">' + (G.hint ? 'Nagovještaj: ' + H.h : '') + '</p>';
+}
+
+function guess(){
+  const done = GUESS.slice(0, P.gi).map(r =>
+    '<li><button class="thumb" data-open="' + r.imgs[0] + '" aria-label="Povećaj fotku"><img src="' + PHOTOS[r.imgs[0]] + '" alt=""></button><span><strong>' + r.name + '</strong></span></li>').join("");
+  if(P.gi >= GUESS.length){
+    return '<h3 class="q" style="margin-bottom:14px">Sve pogođeno</h3><ul class="found">' + done + '</ul>' +
+      '<p>Stare igrice nisu zaboravljene.</p><button class="btn" data-g="menu">Natrag na igru</button>';
+  }
+  const R = GUESS[P.gi];
+  const imgs = '<div class="gimgs g' + R.imgs.length + '">' + R.imgs.map(k =>
+    '<button class="gimg" data-open="' + k + '" aria-label="Povećaj fotku"><img src="' + PHOTOS[k] + '" alt=""></button>').join("") + '</div>';
+  return '<button class="back" data-g="menu">Natrag</button>' +
+    '<p class="meta">Slika ' + (P.gi + 1) + ' od ' + GUESS.length + '</p>' +
+    (done ? '<ul class="found">' + done + '</ul>' : '') + imgs +
+    '<p class="riddle-q">' + R.q + '</p>' +
+    '<input class="ans" id="gans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Upiši naziv" aria-label="Naziv igrice ili igračke">' +
+    '<p class="msg" id="gmsg" role="status"></p>' +
+    '<div class="row" style="margin-top:8px"><button class="btn" data-act="gcheck">Provjeri</button>' +
+    '<button class="btn alt" data-act="ghint">Nagovještaj</button></div>' +
+    '<p class="hint" id="ghint">' + (G.ghint ? 'Nagovještaj: ' + R.h : '') + '</p>';
+}
+
+function checkGuess(){
+  const n = norm($("#gans").value);
+  if(!n){ $("#gmsg").textContent = "Upiši naziv pa dodirni Provjeri."; return; }
+  const R = GUESS[P.gi];
+  if(R.a.some(x => n.includes(x))){
+    P.gi++; G.ghint = false;
+    if(P.gi >= GUESS.length){ P.r = true; report("guess", "Igrice pogođene", CONFIG.nick + " je pogodio sve igrice."); }
+    saveP(); confetti(60); renderGame();
+  } else {
+    $("#gmsg").textContent = "Nije to. Probaj opet ili uzmi nagovještaj.";
+  }
+}
+
+function renderGame(){
+  $("#stage").innerHTML = ({menu, hunt, guess}[G.view])();
+  renderCoupons();
+}
+
+function renderCoupons(){
+  const ok = P.h && P.r;
+  $("#coupons").innerHTML = ok
+    ? COUPONS.map((c,i) =>
+        '<button class="coupon' + (P.used.includes(i) ? ' used' : '') + '" data-coupon="' + i + '" aria-pressed="' + P.used.includes(i) + '">' +
+        esc(c[0]) + '<small>' + esc(c[1]) + '</small><span class="stamp">Iskorišteno</span></button>').join("")
+    : '<div class="locked">Kuponi se otključavaju kad završiš obje igre u sekciji Igra.</div>';
+}
+
+function checkAnswer(){
+  const n = norm($("#ans").value);
+  if(!n){ $("#msg").textContent = "Upiši odgovor pa dodirni Provjeri."; return; }
+  const H = HUNT[P.hunt];
+  if(H.a.some(x => n.includes(x))){
+    P.hunt++; G.hint = false;
+    if(P.hunt >= HUNT.length){ P.h = true; report("hunt", "Potraga završena", CONFIG.nick + " je završio potragu za blagom."); }
+    saveP(); confetti(60); renderGame();
+  } else {
+    $("#msg").textContent = "Nije to. Probaj drugu riječ ili uzmi nagovještaj.";
+  }
+}
+
+/* ---- Efekti ---- */
+function confetti(count){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c = $("#fx"), x = c.getContext("2d"), dpr = window.devicePixelRatio || 1;
+  c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
+  const cols = ["#FFE14D","#111111","#FFFFFF","#FF5C8A","#2B6BFF"];
+  const P2 = Array.from({length: count || 150}, () => ({
+    x: innerWidth/2, y: innerHeight*0.6,
+    vx: (Math.random()-.5)*14, vy: -Math.random()*16-4,
+    s: Math.random()*8+5, c: cols[Math.random()*cols.length|0],
+    r: Math.random()*6.28, vr: (Math.random()-.5)*.4
+  }));
+  let f = 0;
+  (function tick(){
+    x.clearRect(0,0,innerWidth,innerHeight);
+    P2.forEach(p => {
+      p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle = p.c;
+      x.fillRect(-p.s/2, -p.s/4, p.s, p.s/2); x.restore();
+    });
+    if(++f < 170) requestAnimationFrame(tick); else x.clearRect(0,0,innerWidth,innerHeight);
+  })();
+}
+function floaters(emoji){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  for(let i = 0; i < 12; i++){
+    const s = document.createElement("span");
+    s.className = "float"; s.textContent = emoji;
+    s.style.left = (Math.random() * 92) + "vw";
+    s.style.animationDelay = (Math.random() * 0.7) + "s";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 3400);
+  }
+}
+
+/* ---- E-mail obavijesti ---- */
+const lastSent = {};
+async function report(key, subject, message, onFail){
+  if(!CONFIG.notifyKey) return;
+  if(lastSent[key] && Date.now() - lastSent[key] < 60000) return;   // najviše 1 mail po gumbu u minuti
+  lastSent[key] = Date.now();
+  const when = new Date().toLocaleString("hr-HR", {timeZone: "Europe/Zagreb"});
+  let ok = false;
+  try{
+    const r = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify({
+        access_key: CONFIG.notifyKey,
+        subject: "Birthday Drop: " + subject,
+        from_name: "Birthday Drop",
+        name: CONFIG.nick,
+        message: message + "\n\n" + when
+      })
+    });
+    const j = await r.json(); ok = !!j.success;
+  }catch(e){}
+  if(!ok && onFail) onFail();
+}
+
+/* ---- Bit (kratki boom-bap loop, Web Audio) ---- */
+let beat = null;
+function setBeatLabel(on){
+  $("#beatTxt").textContent = on ? "Zaustavi bit" : "Pusti bit";
+  $("#beatIcon").innerHTML = on ? '<rect x="6" y="6" width="12" height="12" rx="1"/>' : '<path d="M6 4l14 8-14 8z"/>';
+  $("#beatBtn").classList.toggle("on", on);
+}
+function stopBeat(){
+  if(!beat) return;
+  clearTimeout(beat.timer);
+  try{ beat.ac.close(); }catch(e){}
+  beat = null; setBeatLabel(false);
+}
+function toggleBeat(){
+  if(beat){ stopBeat(); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if(!AC) return;
+  const ac = new AC(), step = 60 / 90 / 2;
+  const master = ac.createGain(); master.gain.value = 0.55; master.connect(ac.destination);
+  const nb = ac.createBuffer(1, ac.sampleRate * 0.25, ac.sampleRate), d = nb.getChannelData(0);
+  for(let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  const kick = t => { const o = ac.createOscillator(), g = ac.createGain();
+    o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.15);
+    g.gain.setValueAtTime(1, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.32); };
+  const noise = (t, freq, vol, len) => { const n = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    n.buffer = nb; f.type = "highpass"; f.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + len);
+    n.connect(f); f.connect(g); g.connect(master); n.start(t); n.stop(t + len + 0.02); };
+  const kicks = [0, 3, 8, 11, 12], snares = [2, 6, 10, 14], start = ac.currentTime + 0.08, total = 64;
+  for(let s = 0; s < total; s++){
+    const t = start + s * step, k = s % 16;
+    noise(t, 7000, k % 2 ? 0.12 : 0.22, 0.05);
+    if(kicks.includes(k)) kick(t);
+    if(snares.includes(k)) noise(t, 1400, 0.7, 0.18);
+  }
+  beat = {ac, timer: setTimeout(stopBeat, total * step * 1000 + 400)};
+  setBeatLabel(true); confetti(50);
+}
+
+/* ---- Događaji ---- */
+document.addEventListener("click", e => {
+  const op = e.target.closest("[data-open]");
+  if(op){ openLb(op.dataset.open); return; }
+  const sc = e.target.closest("[data-scroll]");
+  if(sc){ const el = document.getElementById(sc.dataset.scroll); if(el) el.scrollIntoView({behavior:"smooth"}); return; }
+  const g = e.target.closest("[data-g]");
+  if(g){
+    G.view = g.dataset.g;
+    if(G.view === "hunt"){ G.hint = false; }
+    if(G.view === "guess"){ G.ghint = false; }
+    renderGame(); return;
+  }
+  const ac = e.target.closest("[data-act]");
+  if(ac){
+    const a = ac.dataset.act;
+    if(a === "hint"){ G.hint = true; $("#hint").textContent = "Nagovještaj: " + HUNT[P.hunt].h; }
+    if(a === "check") checkAnswer();
+    if(a === "gcheck") checkGuess();
+    if(a === "ghint"){ G.ghint = true; $("#ghint").textContent = "Nagovještaj: " + GUESS[P.gi].h; }
+    return;
+  }
+  const cp = e.target.closest("[data-coupon]");
+  if(cp){
+    const i = +cp.dataset.coupon, at = P.used.indexOf(i);
+    if(at >= 0) P.used.splice(at,1); else { P.used.push(i); confetti(40); report("coupon" + i, "Kupon iskorišten", CONFIG.nick + " je iskoristio kupon: " + COUPONS[i][0] + "."); }
+    cp.classList.toggle("used", P.used.includes(i));
+    cp.setAttribute("aria-pressed", P.used.includes(i));
+    saveP(); return;
+  }
+  const cta = e.target.closest("[data-cta]");
+  if(cta){
+    const t = cta.dataset.cta, toast = $("#toast");
+    if(t === "confetti"){ confetti(180); }
+    if(t === "beer"){
+      floaters("🍺"); confetti(80);
+      if(toast) toast.textContent = "Narudžba zaprimljena: jedno pivo. Dostava osobno, čim se vidimo.";
+      report("beer", "Naručeno pivo", CONFIG.nick + " je naručio pivo.", () => { if(toast) toast.textContent = "Nešto je zapelo, probaj ponovno."; });
+    }
+    if(t === "beat"){ toggleBeat(); }
+    if(t === "thanks"){
+      floaters("🔥");
+      if(toast) toast.textContent = "Hvala poslano. Poruka je stigla.";
+      report("thanks", "Hvala", CONFIG.nick + " ti šalje hvala.", () => { if(toast) toast.textContent = "Nešto je zapelo, probaj ponovno."; });
+    }
+  }
+});
+$("#stage").addEventListener("keydown", e => { if(e.key === "Enter" && e.target.id === "ans") checkAnswer();
+  if(e.key === "Enter" && e.target.id === "gans") checkGuess(); });
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){ closeHelp(); closeLb(); }
+  if($("#lb").classList.contains("open")){
+    if(e.key === "ArrowLeft") showLb(lbI - 1);
+    if(e.key === "ArrowRight") showLb(lbI + 1);
+  }
+});
+
+/* ---- Pomoć ---- */
+function openHelp(){ $("#overlay").classList.add("open"); $("#helpClose").focus(); }
+function closeHelp(){ $("#overlay").classList.remove("open"); }
+$("#helpBtn").addEventListener("click", openHelp);
+$("#helpClose").addEventListener("click", () => { closeHelp(); $("#helpBtn").focus(); });
+$("#overlay").addEventListener("click", e => { if(e.target.id === "overlay") closeHelp(); });
+$("#helpReset").addEventListener("click", () => {
+  P = {q:false, h:false, r:false, hunt:0, gi:0, res:null, used:[]};
+  G = {view:"menu", hint:false, ghint:false};
+  saveP(); closeHelp(); renderGame();
+});
+
+renderGame();
+</script>
+<script>
+if("serviceWorker" in navigator){ addEventListener("load", function(){ navigator.serviceWorker.register("/sw.js").catch(function(){}); }); }
+</script>
+</body>
+</html>
