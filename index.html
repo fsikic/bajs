@@ -178,6 +178,14 @@ input.ans{width:100%;font:inherit;padding:13px 16px;border-radius:12px;border:1p
 
 footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
 
+/* Ulazni ekran */
+.intro-screen{position:fixed;inset:0;z-index:70;background:var(--bg);display:grid;place-items:center;padding:calc(24px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));transition:opacity .35s}
+.intro-screen.hide{opacity:0;pointer-events:none}
+.intro-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;max-width:420px}
+.intro-inner .tag,.intro-inner .back{margin:0}
+.intro-cover{width:min(62vw,260px);aspect-ratio:1/1;object-fit:cover;object-position:center 40%;border:1px solid var(--ink);border-radius:6px;display:block}
+.intro-title{font-size:clamp(2rem,9vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1}
+.intro-play{font-size:1.1rem;padding:14px 34px;margin-top:6px}
 /* Pomoć */
 .overlay{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center}
 .overlay.open{display:flex}
@@ -288,7 +296,7 @@ footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <li><strong>Igra:</strong> odaberi Potragu za blagom ili Pogodi igricu. U potrazi upiši odgovor na zagonetku i dodirni "Provjeri", a ako zapneš, dodirni "Nagovještaj". Svaka riješena zagonetka otključava jednu fotku. U "Pogodi igricu" gledaš slike iz djetinjstva i upisuješ kako se zovu.</li>
       <li><strong>Posveta i kuponi:</strong> kuponi se otključavaju kad završiš obje igre. Dodirni kupon da ga iskoristiš.</li>
       <li><strong>Gumbi:</strong> "Konfeti", "Naruči pivo" i "Pošalji hvala" pokreću male animacije. </li>
-      <li><strong>Beat:</strong> gumb "Pusti beat" u gornjoj traci svira pjesmu dok skrolaš. Dodirni ga ponovno za zaustavljanje. Provjeri da mobitel nije na tihom.</li>
+      <li><strong>Beat:</strong> pjesma krene kad na ulazu dodirneš "Pusti album". Gumb "Pusti beat" u gornjoj traci je pali i gasi dok skrolaš. Provjeri da mobitel nije na tihom.</li>
       <li><strong>Tema:</strong> okrugli gumb pored upitnika mijenja svijetlu i tamnu temu.</li>
     </ul>
     <p>Napredak u igri i iskorišteni kuponi pamte se na ovom uređaju.</p>
@@ -296,6 +304,15 @@ footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <button class="btn" id="helpClose">Zatvori</button>
       <button class="btn alt" id="helpReset">Kreni ispočetka</button>
     </div>
+  </div>
+</div>
+<div class="intro-screen" id="intro" role="dialog" aria-modal="true" aria-label="Dobrodošao">
+  <div class="intro-inner">
+    <p class="tag">NOVI ALBUM // 2026</p>
+    <img id="introImg" class="intro-cover" alt="Naslovna fotka">
+    <h2 class="intro-title">Birthday Drop</h2>
+    <button class="btn intro-play" id="introPlay">Pusti album</button>
+    <button class="back" id="introMute">Uđi bez zvuka</button>
   </div>
 </div>
 <canvas id="fx" aria-hidden="true"></canvas>
@@ -416,6 +433,7 @@ $("#cFrom").textContent = CONFIG.from;
 $("#letter").innerHTML = LETTER.map(p => '<p>' + esc(p) + '</p>').join("") + '<p class="sign">' + esc(CONFIG.from) + '</p>';
 
 $("#coverImg").src = PHOTOS.bajs;
+$("#introImg").src = PHOTOS.bajs;
 $("#bannerImg").src = PHOTOS.klupa;
 
 $("#tl").innerHTML = TIMELINE.map(e =>
@@ -610,6 +628,26 @@ function toggleBeat(){
   else { setBeatLabel(true); }
 }
 song.addEventListener("ended", () => setBeatLabel(false));
+
+/* ---- Ulazni ekran: dodir pokreće pjesmu (preglednici ne dopuštaju automatsko sviranje) ---- */
+document.body.style.overflow = "hidden";
+function enter(withSound){
+  const el = $("#intro");
+  el.classList.add("hide");
+  document.body.style.overflow = "";
+  setTimeout(() => el.remove(), 400);
+  if(withSound) toggleBeat();
+  // obavijest na mail: najviše jednom u 6 sati po uređaju
+  let skip = false;
+  try{
+    const t = +localStorage.getItem("bd-open") || 0;
+    if(Date.now() - t < 6 * 3600 * 1000) skip = true; else localStorage.setItem("bd-open", String(Date.now()));
+  }catch(e){}
+  if(!skip) report("open", "Stranica otvorena", CONFIG.nick + " je otvorio stranicu" + (withSound ? " i pustio album." : " (bez zvuka)."));
+}
+$("#introPlay").addEventListener("click", () => enter(true));
+$("#introMute").addEventListener("click", () => enter(false));
+$("#introPlay").focus();
 
 /* ---- Događaji ---- */
 document.addEventListener("click", e => {
