@@ -200,7 +200,7 @@ footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);colo
 <header class="top">
   <span class="brand">Birthday Drop</span>
   <div class="tools">
-    <button class="beat-btn" id="beatBtn" data-cta="beat" aria-label="Pusti ili zaustavi bit"><svg id="beatIcon" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg><span id="beatTxt">Pusti bit</span></button>
+    <button class="beat-btn" id="beatBtn" data-cta="beat" aria-label="Pusti ili zaustavi beat"><svg id="beatIcon" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg><span id="beatTxt">Pusti beat</span></button>
     <button class="icon-btn" id="themeBtn" aria-label="Promijeni temu svijetla/tamna"></button>
     <button class="icon-btn" id="helpBtn" aria-label="Pomoć: kako radi aplikacija" aria-haspopup="dialog">?</button>
   </div>
@@ -288,7 +288,7 @@ footer{margin-top:88px;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <li><strong>Igra:</strong> odaberi Potragu za blagom ili Pogodi igricu. U potrazi upiši odgovor na zagonetku i dodirni "Provjeri", a ako zapneš, dodirni "Nagovještaj". Svaka riješena zagonetka otključava jednu fotku. U "Pogodi igricu" gledaš slike iz djetinjstva i upisuješ kako se zovu.</li>
       <li><strong>Posveta i kuponi:</strong> kuponi se otključavaju kad završiš obje igre. Dodirni kupon da ga iskoristiš.</li>
       <li><strong>Gumbi:</strong> "Konfeti", "Naruči pivo" i "Pošalji hvala" pokreću male animacije. </li>
-      <li><strong>Bit:</strong> gumb "Pusti bit" u gornjoj traci svira kratki bit dok skrolaš. Dodirni ga ponovno za zaustavljanje. Provjeri da mobitel nije na tihom.</li>
+      <li><strong>Beat:</strong> gumb "Pusti beat" u gornjoj traci svira pjesmu dok skrolaš. Dodirni ga ponovno za zaustavljanje. Provjeri da mobitel nije na tihom.</li>
       <li><strong>Tema:</strong> okrugli gumb pored upitnika mijenja svijetlu i tamnu temu.</li>
     </ul>
     <p>Napredak u igri i iskorišteni kuponi pamte se na ovom uređaju.</p>
@@ -594,45 +594,22 @@ async function report(key, subject, message, onFail){
   if(!ok && onFail) onFail();
 }
 
-/* ---- Bit (kratki boom-bap loop, Web Audio) ---- */
-let beat = null;
+/* ---- Beat (MP3: /beat.mp3 u korijenu repoa) ---- */
+const song = new Audio("/beat.mp3");
+song.preload = "none";
 function setBeatLabel(on){
-  $("#beatTxt").textContent = on ? "Zaustavi bit" : "Pusti bit";
+  $("#beatTxt").textContent = on ? "Zaustavi beat" : "Pusti beat";
   $("#beatIcon").innerHTML = on ? '<rect x="6" y="6" width="12" height="12" rx="1"/>' : '<path d="M6 4l14 8-14 8z"/>';
   $("#beatBtn").classList.toggle("on", on);
 }
-function stopBeat(){
-  if(!beat) return;
-  clearTimeout(beat.timer);
-  try{ beat.ac.close(); }catch(e){}
-  beat = null; setBeatLabel(false);
-}
+function stopBeat(){ song.pause(); song.currentTime = 0; setBeatLabel(false); }
 function toggleBeat(){
-  if(beat){ stopBeat(); return; }
-  const AC = window.AudioContext || window.webkitAudioContext;
-  if(!AC) return;
-  const ac = new AC(), step = 60 / 90 / 2;
-  const master = ac.createGain(); master.gain.value = 0.55; master.connect(ac.destination);
-  const nb = ac.createBuffer(1, ac.sampleRate * 0.25, ac.sampleRate), d = nb.getChannelData(0);
-  for(let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-  const kick = t => { const o = ac.createOscillator(), g = ac.createGain();
-    o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.15);
-    g.gain.setValueAtTime(1, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
-    o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.32); };
-  const noise = (t, freq, vol, len) => { const n = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
-    n.buffer = nb; f.type = "highpass"; f.frequency.value = freq;
-    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + len);
-    n.connect(f); f.connect(g); g.connect(master); n.start(t); n.stop(t + len + 0.02); };
-  const kicks = [0, 3, 8, 11, 12], snares = [2, 6, 10, 14], start = ac.currentTime + 0.08, total = 64;
-  for(let s = 0; s < total; s++){
-    const t = start + s * step, k = s % 16;
-    noise(t, 7000, k % 2 ? 0.12 : 0.22, 0.05);
-    if(kicks.includes(k)) kick(t);
-    if(snares.includes(k)) noise(t, 1400, 0.7, 0.18);
-  }
-  beat = {ac, timer: setTimeout(stopBeat, total * step * 1000 + 400)};
-  setBeatLabel(true); confetti(50);
+  if(!song.paused){ stopBeat(); return; }
+  const p = song.play();
+  if(p && p.then){ p.then(() => { setBeatLabel(true); confetti(50); }).catch(() => setBeatLabel(false)); }
+  else { setBeatLabel(true); }
 }
+song.addEventListener("ended", () => setBeatLabel(false));
 
 /* ---- Događaji ---- */
 document.addEventListener("click", e => {
